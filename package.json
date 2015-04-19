@@ -67,5 +67,16 @@
     "mocha": "^2.2.4",
     "multiline": "^1.0.2",
     "supertest": "^0.15.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/sahat/hackathon-starter/issues"
+  },
+  "homepage": "https://github.com/sahat/hackathon-starter",
+  "description": "this uses the muse to read brain waves",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "david awad and rob casale",
+  "license": "MIT"
 }

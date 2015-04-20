@@ -29,7 +29,7 @@ module.exports = {
     user: process.env.MAILGUN_USER || 'postmaster@sandbox697fcddc09814c6b83718b9fd5d4e5dc.mailgun.org',
     password: process.env.MAILGUN_PASSWORD || '29eldds1uri6'
   },
-  
+
   mandrill: {
     user: process.env.MANDRILL_USER || 'hackathonstarterdemo',
     password: process.env.MANDRILL_PASSWORD || 'E1K950_ydLR4mHw12a0ldA'
@@ -73,6 +73,8 @@ module.exports = {
   twitter: {
     consumerKey: process.env.TWITTER_KEY || '6NNBDyJ2TavL407A3lWxPFKBI',
     consumerSecret: process.env.TWITTER_SECRET  || 'ZHaYyK3DQCqv49Z9ofsYdqiUgeoICyh6uoBgFfu7OeYC7wTQKa',
+    //consumerKey: process.env.TWITTER_KEY || 'H36cuHLo4PUzaKUTQLKWyQOyK'  ,
+    //consumerSecret: process.env.TWITTER_SECRET  || 'nJjkzManRL4VLQnkl6RZoXZ4Majck4VdwMmZSFdsy3m4LEAw1R',
     callbackURL: '/auth/twitter/callback',
     passReqToCallback: true
   },

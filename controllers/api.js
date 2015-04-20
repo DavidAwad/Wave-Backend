@@ -267,7 +267,7 @@ exports.getTwitter = function(req, res, next) {
     access_token: token.accessToken,
     access_token_secret: token.tokenSecret
   });
-  T.get('search/tweets', { q: 'nodejs since:2013-01-01', geocode: '40.71448,-74.00598,5mi', count: 10 }, function(err, reply) {
+  T.get('search/tweets', { q: 'MakingWaves', geocode: '40.5456,-74.4608,10mi', count: 10 }, function(err, reply) {
     if (err) return next(err);
     res.render('api/twitter', {
       title: 'Twitter API',
@@ -683,9 +683,9 @@ exports.getPayPalCancel = function(req, res) {
  */
 exports.getLob = function(req, res, next) {
   lob.routes.list({
-    zip_codes: ['10007'] 
+    zip_codes: ['10007']
   }, function(err, routes) {
-    if(err) return next(err); 
+    if(err) return next(err);
     res.render('api/lob', {
       title: 'Lob API',
       routes: routes.data[0].routes

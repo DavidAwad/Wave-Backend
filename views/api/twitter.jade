@@ -1,5 +1,7 @@
 extends ../layout
 
+script(type="text/javascript" async src="https://platform.twitter.com/widgets.js")
+
 block content
   .page-header
     h2
@@ -21,7 +23,7 @@ block content
 
   .well
     h4 Compose new Tweet
-    form(role='form', method='POST')
+    form.post-twitter(role='form', action="/send-tweet", method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
         input.form-control(type='text', name='tweet', autofocus)
@@ -34,11 +36,11 @@ block content
 
   .lead Latest
     strong  #{tweets.length}
-    |  Tweets containing the term
-    strong  nodejs
-    |  in NYC within
-    strong  5
-    |  miles radius
+    |  Tweets containing
+    strong  "#makingWaves"
+    |  within a 
+    strong  10
+    |  mile radius
 
   ul.media-list
     for tweet in tweets

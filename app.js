@@ -142,37 +142,56 @@ app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
 
+// get
+app.get('/send-tweet', function(req,res){
 
-app.get('/_find_route', function(req,res){
+  var Twit = require('twit');
 
-var Twitter = require('node-twitter');
+  var T = new Twit({
+    consumer_key : 'H36cuHLo4PUzaKUTQLKWyQOyK'         ,
+    consumer_secret: 'nJjkzManRL4VLQnkl6RZoXZ4Majck4VdwMmZSFdsy3m4LEAw1R'   ,
+    access_token : '3182430177-DYqXx0Njc66Ny1EN9nWfWwd7Yd5r2mwJ3wnWz51'     ,
+    access_token_secret: 'CdarD4rxTRgnyQeMCK1R3JSnCcdoK7Zjo7Ii9zD0e6Ubb'
+  });
 
-  var twitterRestClient = new Twitter.RestClient(
-    'q6vfaYn4kCaXX8Frr5dP9JGRA'  ,
-    'TB9cbuy93LGFrTIzav3ZkLLuNOO43Jq72VFqrKH1MJ6zlFD85L',
-    '3182430177-DYqXx0Njc66Ny1EN9nWfWwd7Yd5r2mwJ3wnWz51' ,
-    'CdarD4rxTRgnyQeMCK1R3JSnCcdoK7Zjo7Ii9zD0e6Ubb'
-  );
+  //Consumer Key (API Key)	H36cuHLo4PUzaKUTQLKWyQOyK
+  //Consumer Secret (API Secret)	nJjkzManRL4VLQnkl6RZoXZ4Majck4VdwMmZSFdsy3m4LEAw1R
 
-  twitterRestClient.statusesUpdate(
-    {
-        'status': 'This is my tweet, get on my level.'
-    },
-    function(error, result) {
-        if (error)
-        {
-            console.log('Error: ' + (error.code ? error.code + ' ' + error.message : error.message));
-        }
-
-        if (result)
-        {
-            console.log(result);
-        }
-    }
-  );
+  //
+  T.post('statuses/update', { status: 'Tweet #:' + Math.floor(Math.random()*100) + '> Having crazy brain waves! It\'s at '+req.param('frequency')}, function(err, data, response) {
+    console.log(data)
+  })
 
   res.send("we're good!");
 });
+
+// post
+app.post('/send-tweet', function(req,res){
+
+  var Twit = require('twit');
+
+  var T = new Twit({
+    consumer_key : 'H36cuHLo4PUzaKUTQLKWyQOyK'         ,
+    consumer_secret: 'nJjkzManRL4VLQnkl6RZoXZ4Majck4VdwMmZSFdsy3m4LEAw1R'   ,
+    access_token : '3182430177-DYqXx0Njc66Ny1EN9nWfWwd7Yd5r2mwJ3wnWz51'     ,
+    access_token_secret: 'CdarD4rxTRgnyQeMCK1R3JSnCcdoK7Zjo7Ii9zD0e6Ubb'
+  });
+
+  //Consumer Key (API Key)	H36cuHLo4PUzaKUTQLKWyQOyK
+  //Consumer Secret (API Secret)	nJjkzManRL4VLQnkl6RZoXZ4Majck4VdwMmZSFdsy3m4LEAw1R
+  /*
+  {
+  'message' : 'this is my TWEET'
+  }
+  */
+  //
+  T.post('statuses/update', {status: req.body.tweet}, function(err, data, response) {
+    console.log(data)
+  })
+  res.json({status: "success",message: "Posted Tweet!"});
+});
+
+
 
 
 
@@ -197,7 +216,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 });*/
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect('/');
+  res.redirect('/api/twitter');
 });/*
 app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'SOME STATE' }));
 app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), function(req, res) {

@@ -1,6 +1,8 @@
 # Waves
 ## A social network for sharing brainwaves. 
-## Designed Using the Muse, MongoDB, Twitter and your Android phone. 
+![Screenshot_Landing_Page](https://raw.githubusercontent.com/DavidAwad/Waves/master/public/img/landing_page.png)
+
+## Built Using the Muse, MongoDB, Twitter and your Android phone. 
 
 *This repository contains the code for our webserver implementation.*
 

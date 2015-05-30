@@ -12,7 +12,7 @@
 This is built and designed using NodeJS, Express.js, and LESS for css preprocessing. We also support facebook, github, and twitter authentication for user accounts. 
 
 ## Contributors
-Big thanks to my team members, [Abhi Verma](http://abhiverma.com/), [Rob Casale](https://github.com/Gearheads), And [Apoorv Verma](). 
+Big thanks to my team members, [Abhi Verma](http://abhiverma.com/), [Rob Casale](https://github.com/Gearheads), And [Apoorv Verma](https://www.linkedin.com/in/apoorvverma). 
 
 ![twitter](https://g.twimg.com/Twitter_logo_blue.png)
 ![MongoDB](http://www.mongodb.org/static/images/mongodb-logo-large.png)
